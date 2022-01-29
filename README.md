@@ -39,7 +39,7 @@ Adaptación de HTML básico con soporte previo de integración con Google, ahora
 
 #### Instrucciones para gestionar auth vía Google
 
-1. Acceder a https://developers.facebook.com/ y acceder con un usuario registrado en dicha plataforma.
+1. Acceder a https://developers.facebook.com/ con un usuario registrado en dicha plataforma.
 
 2. Registarse como desarrollador en el link anterior.
 
