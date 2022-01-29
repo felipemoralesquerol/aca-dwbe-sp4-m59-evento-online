@@ -2,7 +2,7 @@
 
 #### Descripción
 
-Adaptación de HTML básico con soporte previo de integración con Google, ahora vía Facebook!
+Adaptación de HTML básico con soporte previo de integración con Google, ahora auth vía Facebook!
 
 
 #### Prerrequisitos tecnológicos:
