@@ -51,16 +51,13 @@ Adaptación de HTML básico para lograr auth vía Facebook!
 
    a. URL del sitio web, por ejemplo http://localhost:5000
    
+6. Luego copiar las credenciales desde la configuración de nuestra aplicación, en la solapa Información básica se puede copiar el Identificar de la aplicación y la clave secreta de la aplicación. Estos son las credenciales que vamos a estar utilizando en la app copiandolas en el archivo .env.
 
-6. Con esto tenemos nuestra pantalla de consentimiento lista!
+7. Ahora pasamos a descargar la librería passport para oauth.
 
-7. Luego vamos a la solapa Credenciales y vamos a Crear ID de cliente de Oauth de tipo aplicación web, y le damos el nombre del cliente. Estos son las credenciales que vamos a estar utilizando en la app.
+   ```npm install passport-facebook```
 
-8. Ahora pasamos a descargar la librería passport para oauth.
-
-   ```npm install passport-google-oauth20 passport cookie-session```
-
-9. Chequear y aplicar el código desde https://github.com/Vuka951/tutorial-code/tree/master/express-google-oauth2/done a nuestro proyecto
+8. Chequear y aplicar el código desde https://github.com/passport/express-4.x-facebook-examplea nuestro proyecto
 
 
 
