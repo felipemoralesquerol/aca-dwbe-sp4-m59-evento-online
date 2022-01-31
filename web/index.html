@@ -25,15 +25,16 @@
 
             <form id="form" onsubmit="handlerValidarRegister(event)">
                 <input type="text" id="nombre" name="Nombre" placeholder="Nombre">
-                <input type="text" id="apellido" name="Apellido" placeholder="Apellido" required>
-                <input type="email" id="email" name="Email" placeholder="Email" required>
-                <input type="password" id="password" name="Contraseña" placeholder="Contraseña" autocomplete="on"
-                    required>
+                <input type="text" id="apellido" name="Apellido" placeholder="Apellido">
+                <input type="email" id="email" name="Email" placeholder="Email">
+                <input type="password" id="password" name="Contraseña" placeholder="Contraseña" autocomplete="on">
                 <input type="submit" value="Registrarse">
                 <p id="messageError" class="parrafoError"></p>
                 <p class="registrarse-con">O registrase con </p>
                 <input type="button" value="Google"
                     onclick="window.location.href = 'http://localhost:5000/auth/google'">
+                <input type="button" value="Facebook"
+                    onclick="window.location.href = 'http://localhost:5000/auth/facebook'">
             </form>
 
 

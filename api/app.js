@@ -60,7 +60,6 @@ const isLoggedIn = (req, res, next) => {
 }
 
 
-
 const program = require("./routes/program.js");
 app.use("/", program);
 
@@ -120,11 +119,10 @@ app.get('/auth/facebook/callback',
     res.redirect('/auth/facebook/good');
   });
 
-app.get('/auth/facebook/good', (req, res) => {
+app.get('/auth/facebook/good', isLoggedIn, (req, res) => {
   console.log(req.user);
   //return res.send(req.user);
   return res.send(`Bienvenido ${req.user.displayName}`);
-
 }
 );
 
