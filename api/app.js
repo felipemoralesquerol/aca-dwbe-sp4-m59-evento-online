@@ -78,7 +78,7 @@ app.use(passport.session());
 // Example protected and unprotected routes
 app.get('/', (req, res) => res.send('Example Home page!'))
 
-app.get('/auth/google/failed', (req, res) => res.send('Falla al loguearse'))
+app.get('/auth/failed', (req, res) => res.send('Falla al loguearse'))
 
 // In this route you can see that if the user is logged in u can acess his info in: req.user
 app.get('/auth/google/good', isLoggedIn, (req, res) => {
@@ -92,7 +92,7 @@ app.get('/auth/google/good', isLoggedIn, (req, res) => {
 // Auth Routes
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google/failed' }),
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/failed' }),
   function (req, res) {
     // Successful authentication, redirect home.
     // console.log(req);
@@ -109,13 +109,12 @@ app.get('/auth/logout', (req, res) => {
 })
 
 
-
 app.get('/auth/facebook',
   passport.authenticate('facebook', { scope: ['user_friends'] })
 );
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  passport.authenticate('facebook', { failureRedirect: '/auth/failed' }),
   function (req, res) {
     // Successful authentication, redirect home.
     res.redirect('/auth/facebook/good');
