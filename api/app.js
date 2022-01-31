@@ -101,7 +101,8 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
   }
 );
 
-app.get('/auth/google/logout', (req, res) => {
+// Usada tanto para Google como para Facebook
+app.get('/auth/logout', (req, res) => {
   req.session = null;
   req.logout();
   res.redirect('/');
@@ -127,12 +128,6 @@ app.get('/auth/facebook/good', (req, res) => {
 
 }
 );
-
-app.get('/auth/facebook/logout', (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect('/');
-})
 
 
 // Activación de la app en modo escucha
