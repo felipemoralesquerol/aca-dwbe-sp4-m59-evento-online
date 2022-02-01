@@ -11,7 +11,7 @@ function getPayload(usuario) {
     email: usuario.email,
     username: usuario.username,
     admin: usuario.admin,
-    usernameID : usuario.id
+    usernameID: usuario.id
   };
 }
 
@@ -21,7 +21,7 @@ function getPayload(usuario) {
 exports.signin = async function signin(req, res, next) {
   try {
     const { email, password } = req.body;
-    console.log("signin", email, password);
+    console.log("signin", email);
 
     // TODO: Sanitizar y validar la información ingresada
 
@@ -72,16 +72,18 @@ exports.signup = async function signup(req, res, next) {
     const { username, password, email, nombre, direccion_envio, telefono } = req.body;
     console.log("signup", req.body);
 
-    let usuario = await UsuariosModel.findOne({ where: { 
-      [Op.or]: [{email: email}, {username: username}]
-    }});
+    let usuario = await UsuariosModel.findOne({
+      where: {
+        [Op.or]: [{ email: email }, { username: username }]
+      }
+    });
     if (usuario) {
       httpMessage.DuplicateData("Email y/o Username ya registrado!", res);
       return;
     };
 
     // Validar dureza de password
-       
+
     req.body.password = passwordManager.encrypt(req.body.password);
 
     usuario = await UsuariosModel.create(req.body);
