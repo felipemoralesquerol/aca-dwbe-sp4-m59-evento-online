@@ -8,29 +8,12 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const db = require("./config/db");
 
-
-require('./auth/passport-setup');
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
+
+require('./auth/passport-setup-google');
+require('./auth/passport-setup-facebook');
 
 const cookieSession = require('cookie-session')
-
-passport.use(new FacebookStrategy({
-  clientID: '3073577812908390',
-  clientSecret: '2282183ff236eb8e5148a9848298e521',
-  callbackURL: 'http://localhost:5000/auth/facebook/callback'
-  //callbackURL: '/oauth2/redirect/www.facebook.com',
-
-},
-  function (accessToken, refreshToken, profile, cb) {
-    // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
-    console.log('Use Facebook Strategy');
-    return cb(null, profile);
-  }
-));
 
 
 // Inicializacion del server
