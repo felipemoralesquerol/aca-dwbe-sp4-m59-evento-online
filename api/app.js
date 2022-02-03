@@ -29,7 +29,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use(cookieSession({
-  name: process.env.GOOGLE_APP,
+  name: 'backend-auth',
   keys: ['key1', 'key2']
 }))
 
@@ -85,14 +85,16 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 
 // Usada tanto para Google como para Facebook
 app.get('/auth/logout', (req, res) => {
+  console.log(req.session);
   req.session = null;
   req.logout();
-  res.redirect('/');
+  res.status(200).redirect('/');
 })
 
 
 app.get('/auth/facebook',
-  passport.authenticate('facebook', { scope: ['user_friends'] })
+  //passport.authenticate('facebook', { scope: ['user_friends'] })
+  passport.authenticate('facebook')
 );
 
 app.get('/auth/facebook/callback',

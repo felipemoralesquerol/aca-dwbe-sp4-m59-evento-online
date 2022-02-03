@@ -57,7 +57,7 @@ Adaptación de HTML básico con soporte previo de integración con Google, ahora
 
    ```npm install passport-facebook```
 
-8. Chequear y aplicar el código desde https://github.com/passport/express-4.x-facebook-examplea nuestro proyecto
+8. Chequear y aplicar el código desde https://github.com/passport/express-4.x-facebook-example nuestro proyecto
 
 
 
