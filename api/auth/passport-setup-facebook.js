@@ -27,11 +27,9 @@ passport.deserializeUser(function (user, done) {
 
 
 passport.use(new FacebookStrategy({
-  clientID: '3073577812908390',
-  clientSecret: '2282183ff236eb8e5148a9848298e521',
-  callbackURL: 'http://localhost:5000/auth/facebook/callback'
-  //callbackURL: '/oauth2/redirect/www.facebook.com',
-
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL
 },
   function (accessToken, refreshToken, profile, done) {
     // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
