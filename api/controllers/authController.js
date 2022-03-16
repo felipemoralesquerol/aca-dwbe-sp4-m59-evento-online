@@ -35,7 +35,7 @@ exports.signin = async function signin(req, res, next) {
     }
 
     if (usuario.suspendido) {
-      httpMessage.NotFound("Usuario suspendido", res);
+      httpMessage.NotFound("Usuario suspendido o bloqueado", res);
       return;
     }
 
